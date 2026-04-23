@@ -1,0 +1,9 @@
+title: BizPulse Kenya
+plugins:
+  datasources:
+    "@evidence-dev/snowflake": {}
+  components:
+    "@evidence-dev/core-components": {}
+sources:
+  - name: snowflake
+    type: snowflake

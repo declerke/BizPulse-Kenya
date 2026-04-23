@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: raw
+    database: BIZPULSE
+    schema: RAW
+    tables:
+      - name: RAW_ARTICLES
+        description: RSS news articles from Business Daily Africa and Standard Media
+        columns:
+          - name: id
+            tests: [unique, not_null]
+          - name: title
+            tests: [not_null]
+          - name: source
+            tests:
+              - accepted_values:
+                  values: ["business_daily", "standard_media"]
+
+      - name: RAW_CBK_FOREX
+        description: CBK daily indicative forex rates
+        columns:
+          - name: id
+            tests: [unique, not_null]
+          - name: currency_pair
+            tests: [not_null]
+
+      - name: RAW_CBK_RATES
+        description: CBK interest rates including Central Bank Rate
+        columns:
+          - name: id
+            tests: [unique, not_null]
+          - name: rate_value
+            tests: [not_null]
